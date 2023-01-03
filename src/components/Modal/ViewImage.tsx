@@ -21,13 +21,13 @@ export function ModalViewImage({
   // TODO MODAL WITH IMAGE AND EXTERNAL LINK
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size="lg">
         <ModalOverlay />
-        <ModalContent>
-          <ModalBody>
-            <Image src={imgUrl} />
+        <ModalContent bgColor="gray.800">
+          <ModalBody py="none" px="none">
+            <Image src={imgUrl} objectFit="cover" w="100%" h="100%" />
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter justifyContent="start" display="flex" py={2}>
             <Link href={imgUrl} isExternal>
               Abrir original
             </Link>
