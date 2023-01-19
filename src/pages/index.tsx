@@ -1,4 +1,4 @@
-import { Flex, Button, Box } from '@chakra-ui/react';
+import { Flex, Button, Box, Heading } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import { useInfiniteQuery } from 'react-query';
 
@@ -6,7 +6,7 @@ import { Header } from '../components/Header';
 import { CardList } from '../components/CardList';
 import { api } from '../services/api';
 import { Loading } from '../components/Loading';
-import { Error } from '../components/Error';
+// import { Error } from '../components/Error';
 
 export default function Home(): JSX.Element {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, no-return-await
@@ -57,7 +57,19 @@ export default function Home(): JSX.Element {
   }
   // TODO RENDER ERROR SCREEN
   if (isError) {
-    return <Loading />;
+    return (
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        h="100vh"
+        flexDir="column"
+      >
+        <Heading>Infelizmente ocorreu um erro =(</Heading>
+        <Button py={6} onClick={() => window.location.reload()} mt={4}>
+          Clique aqui para tentar novamente
+        </Button>
+      </Flex>
+    );
   }
 
   return (
