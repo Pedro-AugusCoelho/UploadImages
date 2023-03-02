@@ -10,9 +10,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ChakraProvider resetCSS theme={theme}>
       <QueryClientProvider client={queryClient}>
-
         <Component {...pageProps} />
-
       </QueryClientProvider>
     </ChakraProvider>
   );
